@@ -1,0 +1,212 @@
+.dark .overlay::after {
+    background-color: rgba(0, 0, 0, 0.70);
+    opacity: 0.80;
+}
+
+.dark .parent::after {
+    background-color: rgba(0, 0, 0, 0.70);
+    opacity: 0.80;
+}
+
+.dark .child::after {
+    background-color: rgba(0, 0, 0, 0.3);
+    opacity: 0.60;
+}
+
+/*---------------------*/
+
+.dark {
+    color: rgba(255, 255, 255, 0.60 );
+}
+
+.dark footer div{
+    color: rgba(255, 255, 255, 0.60);
+}
+
+
+.dark h1 {
+    color: rgba(255, 255, 255, 0.60);
+}
+
+.dark h2 {
+    color: rgba(255, 255, 255, 0.60);
+}
+
+.dark #logostr {
+    color: rgba(255, 255, 255, 0.60);
+}
+
+
+/* FF */
+.dark * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.2) rgba(255, 255, 255, 0.0);
+}
+.dark *:hover {
+    scrollbar-color: rgba(255, 255, 255, 0.4) rgba(255, 255, 255, 0.0);
+}
+.dark *:focus {
+    scrollbar-color: rgba(255, 255, 255, 0.4) rgba(255, 255, 255, 0.1);
+}
+
+.dark ::-webkit-scrollbar-thumb{
+    background-color: rgba(255, 255, 255, 0.2);
+}
+.dark *:hover::-webkit-scrollbar-thumb{
+    background-color: rgba(255, 255, 255, 0.4);
+}
+.dark *:focus::-webkit-scrollbar-track{
+    background: rgba(255, 255, 255, 0.1);
+}
+.dark *:focus::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: inset 0px 0px 3px 0px rgba(255, 255, 255, 0.6);
+}
+.dark *:focus::-webkit-scrollbar-corner {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+
+
+.dark ::-webkit-calendar-picker-indicator
+{
+  filter: invert(1) opacity(0.5);
+}
+
+
+
+
+.dark input[type="range"], .dark input[type="range"]:hover, .dark input[type="range"]:focus {
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+  
+.dark input[type="range"]::-webkit-slider-runnable-track {
+    color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.21);
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+.dark input[type="range"]::-moz-range-track {
+    color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.21);
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+.dark input[type="range"]::-ms-track {
+    color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.21);
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.dark input[type="range"]:focus::-webkit-slider-runnable-track {
+    outline: 1px rgba(255, 255, 255, 0.17);
+    outline-style: solid;
+}
+.dark input[type="range"]:focus::-moz-range-track {
+    outline: 1px rgba(255, 255, 255, 0.17);
+    outline-style: solid;
+}
+.dark input[type="range"]:focus::-ms-track {
+    outline: 1px rgba(255, 255, 255, 0.17);
+    outline-style: solid;
+}
+
+.dark input[type="range"]::-webkit-slider-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0px 0px 10px 0px rgba(255, 255, 255, 0.69);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+.dark input[type="range"]::-webkit-slider-thumb {
+    color: rgba(255, 255, 255, 0.60 );
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.41);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.4), inset 0px 0px 10px 0px rgba(255, 255, 255, 0.5);
+}
+.dark input[type="range"]::-moz-range-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0px 0px 10px 0px rgba(255, 255, 255, 0.69);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+.dark input[type="range"]::-moz-range-thumb {
+    color: rgba(255, 255, 255, 0.60 );
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.41);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.4), inset 0px 0px 10px 0px rgba(255, 255, 255, 0.5);
+} 
+.dark input[type="range"]::-ms-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0px 0px 10px 0px rgba(255, 255, 255, 0.69);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+.dark input[type="range"]::-ms-thumb {
+    color: rgba(255, 255, 255, 0.60 );
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.41);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.4), inset 0px 0px 10px 0px rgba(255, 255, 255, 0.5);
+}
+
+.dark input, .dark textarea {
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.21);
+    box-shadow: inset 0 0px 4px rgba(0, 0, 0, 0.3);
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.8);
+}
+.dark input:hover, .dark textarea:hover, .dark input:focus, .dark textarea:focus {
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.4), inset 0px 0px 20px 0px rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.dark button, .dark button:disabled, .dark button:disabled:hover {
+  color: rgba(255, 255, 255, 0.60 );
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.21);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+  outline: 0px rgba(255, 255, 255, 0.3)
+}
+.dark button:focus, .dark .buttonfocus {
+  outline: 1px rgba(255, 255, 255, 0.3);
+  outline-style: solid;
+  outline-offset: -4px;
+}
+.dark button:hover, .dark .buttonhover {
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.4), inset 0px 0px 20px 0px rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+.dark button:active, .dark .buttonactive {
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 1px 8px rgba(0, 0, 0, 0.8), inset 0px 0px 10px 0px rgba(255, 255, 255, 0.69);
+  border: 1px solid rgba(255, 255, 255, 0.21);
+}
+
+.dark button.redbutton:hover {
+    background-color: rgba(255, 0, 0, 0.2);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.4), inset 0px 0px 20px 0px rgba(200, 33, 33, 0.4);
+    border: 1px solid rgba(200, 50, 50, 0.4);
+}
+
+.dark .imgbutton > div, .dark .imgtxtbutton > div {
+    filter: invert(1) opacity(0.7);
+}
+
+.dark #blurNotSupportedWarn {
+    color: rgb(197, 155, 0);
+    text-shadow: 0 0 6px rgb(255, 200, 0);
+    background-color: rgba(255, 255, 0, 0.2);
+}
+
+.dark .switch {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.dark .switch span {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.dark .switch input:focus + span {
+    outline-color: rgba(255, 255, 255, 0.3);
+}

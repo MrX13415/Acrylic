@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<!-- (c) 2016 icelane.net | HTML | Index -->
+<html lang="en">
+   <head>
+      <meta charset="utf-8" />
+      <meta name="author" content="kitty" />
+      <meta name="description" content="meow" />
+      <title>Meow | icelane.net</title>
+      <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Questrial" />
+      <style>
+         body {
+             margin: 0px;
+             padding: 0px;
+             font-family: 'Questrial', sans-serif;
+             background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(229, 229, 229, 1) 100%);
+             background-repeat: no-repeat;
+             background-attachment: fixed;
+         }
+		 
+         .bg {
+             position: fixed;
+             top: 550px;
+             left: 30%;
+             bottom: 80px;
+             right: 30%;
+             height: auto;
+             width: 40%;
+             z-index: -9999;
+         }
+		 
+         .bg-img {
+             position: absolute;
+             height: auto;
+             width: auto;
+             bottom: 0px;
+             right: 0px;
+             left: 0px;
+             margin: auto;
+             max-height: 100%;
+             max-width: 100%;
+             border: 0;
+             object-fit: scale-down;
+         }
+		 
+         .cat-bg {
+             position: absolute;
+             top: 125px;
+             left: 0;
+             right: 0;
+             height: 408px;
+             width: 400px;
+             margin: 0 auto;
+         }
+		 
+         .cat-bg-img {
+             position: absolute;
+             height: 70%;
+             bottom: -30px;
+             right: auto;
+             left: -300px;
+             margin: auto;
+             z-index: -9999;
+         }
+		 
+         #Footer {
+             font-size: 10pt;
+             text-align: center;
+             position: fixed;
+             bottom: 50px;
+             right: 0;
+             left: 0;
+             letter-spacing: 2px;
+             color: #3c3c3c;
+         }
+		 
+         #meow {
+             cursor: pointer;
+             font-size: 150pt;
+             transition: opacity 0.5s linear;
+         }
+		 
+         .rainbow {
+             text-align: center;
+             margin-top: 175px;
+             animation: color_change 22s infinite linear;
+         }
+		 
+         .not-visible {
+             opacity: 0;
+             max-height: 0;
+             overflow: hidden;
+             white-space: normal;
+         }
+		 
+         #cat {
+             cursor: pointer;
+             margin-top: -50px;
+             font-size: 20pt;
+             white-space: pre-wrap;
+             word-wrap: break-word;
+             -moz-control-character-visibility: visible;
+             font-family: "Courier New", Courier, monospace;
+             letter-spacing: -2px;
+             line-height: 90%;
+             transition: opacity 0.5s linear;
+         }
+		 
+         /* Animation | Color-Fade: Rainbow-3D-GlowText */
+         
+         @keyframes color_change {
+             0% {
+                 /*yellow:           #ffc640*/
+                 
+                 color: #ffc640;
+                 text-shadow: 0px 0px 0px rgb(232, 175, 41), 0px 1px 0px rgb(222, 165, 31), 0px 2px 0px rgb(211, 154, 20), 0px 3px 0px rgb(200, 143, 9), 0px 4px 0px rgb(189, 132, -2), 0px 5px 0px rgb(179, 122, -12), 0px 6px 0px rgb(168, 111, -23), 0px 7px 0px rgb(157, 100, -34), 0px 8px 7px rgba(0, 0, 0, 0.55), 0px 8px 1px rgba(0, 0, 0, 0.5), 0px 0px 7px rgba(0, 0, 0, .2), 0px 0px 8px #ffc640, 0px 5px 5px #ffc640;
+             }
+             10% {
+                 /* green:           #a2d24f*/
+                 
+                 color: #a2d24f;
+                 text-shadow: 0px 0px 0px rgb(155, 203, 72), 0px 1px 0px rgb(148, 196, 65), 0px 2px 0px rgb(141, 189, 58), 0px 3px 0px rgb(133, 181, 50), 0px 4px 0px rgb(126, 174, 43), 0px 5px 0px rgb(119, 167, 36), 0px 6px 0px rgb(112, 160, 29), 0px 7px 0px rgb(105, 153, 22), 0px 8px 7px rgba(0, 0, 0, 0.55), 0px 8px 1px rgba(0, 0, 0, 0.5), 0px 0px 7px rgba(0, 0, 0, .2), 0px 0px 8px #a2d24f, 0px 5px 5px #a2d24f;
+             }
+             20% {
+                 /* darkgreen:      #448549*/
+                 
+                 color: #448549;
+                 text-shadow: 0px 0px 0px rgb(62, 127, 67), 0px 1px 0px rgb(56, 121, 61), 0px 2px 0px rgb(50, 115, 55), 0px 3px 0px rgb(44, 109, 49), 0px 4px 0px rgb(38, 103, 43), 0px 5px 0px rgb(32, 97, 37), 0px 6px 0px rgb(26, 91, 31), 0px 7px 0px rgb(20, 85, 25), 0px 8px 7px rgba(0, 0, 0, 0.55), 0px 8px 1px rgba(0, 0, 0, 0.5), 0px 0px 7px rgba(0, 0, 0, .2), 0px 0px 8px #448549, 0px 5px 5px #448549;
+             }
+             30% {
+                 /* turky:           #5bfff5*/
+                 
+                 color: #5bfff5;
+                 text-shadow: 0px 0px 0px rgb(64, 228, 217), 0px 1px 0px rgb(58, 222, 211), 0px 2px 0px rgb(52, 216, 205), 0px 3px 0px rgb(46, 210, 199), 0px 4px 0px rgb(40, 204, 193), 0px 5px 0px rgb(34, 198, 187), 0px 6px 0px rgb(28, 192, 181), 0px 7px 0px rgb(22, 186, 175), 0px 8px 7px rgba(0, 0, 0, 0.55), 0px 8px 1px rgba(0, 0, 0, 0.5), 0px 0px 7px rgba(0, 0, 0, .2), 0px 0px 8px #5bfff5, 0px 5px 5px #5bfff5;
+             }
+             40% {
+                 /* blue:           #48a0f5*/
+                 
+                 color: #48a0f5;
+                 text-shadow: 0px 0px 0px rgb(65, 154, 238), 0px 1px 0px rgb(57, 146, 230), 0px 2px 0px rgb(50, 139, 223), 0px 3px 0px rgb(42, 131, 215), 0px 4px 0px rgb(35, 124, 208), 0px 5px 0px rgb(27, 116, 200), 0px 6px 0px rgb(20, 109, 193), 0px 7px 0px rgb(13, 102, 186), 0px 8px 7px rgba(0, 0, 0, 0.55), 0px 8px 1px rgba(0, 0, 0, 0.5), 0px 0px 7px rgba(0, 0, 0, .2), 0px 0px 8px #48a0f5, 0px 5px 5px #48a0f5;
+             }
+             50% {
+                 /* darkblue:      #315ade*/
+                 
+                 color: #315ade;
+                 text-shadow: 0px 0px 0px rgb(37, 77, 210), 0px 1px 0px rgb(32, 72, 205), 0px 2px 0px rgb(27, 67, 200), 0px 3px 0px rgb(21, 61, 194), 0px 4px 0px rgb(16, 56, 189), 0px 5px 0px rgb(11, 51, 184), 0px 6px 0px rgb(6, 46, 179), 0px 7px 0px rgb(1, 41, 174), 0px 8px 7px rgba(0, 0, 0, 0.55), 0px 8px 1px rgba(0, 0, 0, 0.5), 0px 0px 7px rgba(0, 0, 0, .2), 0px 0px 8px #315ade, 0px 5px 5px #315ade;
+             }
+             60% {
+                 /* magenta:      #ff479e*/
+                 
+                 color: #ff479e;
+                 text-shadow: 0px 0px 0px rgb(237, 53, 139), 0px 1px 0px rgb(230, 46, 132), 0px 2px 0px rgb(223, 39, 125), 0px 3px 0px rgb(217, 33, 119), 0px 4px 0px rgb(210, 26, 112), 0px 5px 0px rgb(203, 19, 105), 0px 6px 0px rgb(196, 12, 98), 0px 7px 0px rgb(189, 5, 91), 0px 8px 7px rgba(0, 0, 0, 0.55), 0px 8px 1px rgba(0, 0, 0, 0.5), 0px 0px 7px rgba(0, 0, 0, .2), 0px 0px 8px #ff479e, 0px 5px 5px #ff479e;
+             }
+             70% {
+                 /* red:           #ff4848*/
+                 
+                 color: #ff4848;
+                 text-shadow: 0px 0px 0px rgb(248, 65, 65), 0px 1px 0px rgb(241, 58, 58), 0px 2px 0px rgb(234, 51, 51), 0px 3px 0px rgb(227, 44, 44), 0px 4px 0px rgb(220, 37, 37), 0px 5px 0px rgb(213, 30, 30), 0px 6px 0px rgb(206, 23, 23), 0px 7px 0px rgb(199, 16, 16), 0px 8px 7px rgba(0, 0, 0, 0.55), 0px 8px 1px rgba(0, 0, 0, 0.5), 0px 0px 7px rgba(0, 0, 0, .2), 0px 0px 8px #ff4848, 0px 5px 5px #ff4848;
+             }
+             80% {
+                 /* red:           #ff4848*/
+                 
+                 color: #ff4848;
+                 text-shadow: 0px 0px 0px rgb(248, 65, 65), 0px 1px 0px rgb(241, 58, 58), 0px 2px 0px rgb(234, 51, 51), 0px 3px 0px rgb(227, 44, 44), 0px 4px 0px rgb(220, 37, 37), 0px 5px 0px rgb(213, 30, 30), 0px 6px 0px rgb(206, 23, 23), 0px 7px 0px rgb(199, 16, 16), 0px 8px 7px rgba(0, 0, 0, 0.55), 0px 8px 1px rgba(0, 0, 0, 0.5), 0px 0px 7px rgba(0, 0, 0, .2), 0px 0px 8px #ff4848, 0px 5px 5px #ff4848;
+             }
+             90% {
+                 /* orange:          #ffa755*/
+                 
+                 color: #ffa755;
+                 text-shadow: 0px 0px 0px rgb(248, 161, 110), 0px 1px 0px rgb(241, 154, 103), 0px 2px 0px rgb(234, 147, 96), 0px 3px 0px rgb(227, 140, 89), 0px 4px 0px rgb(220, 133, 82), 0px 5px 0px rgb(213, 126, 75), 0px 6px 0px rgb(206, 119, 68), 0px 7px 0px rgb(199, 112, 61), 0px 8px 7px rgba(0, 0, 0, 0.55), 0px 8px 1px rgba(0, 0, 0, 0.5), 0px 0px 7px rgba(0, 0, 0, .2), 0px 0px 8px #ffa755, 0px 5px 5px #ffa755;
+             }
+             100% {
+                 /*yellow:           #ffc640*/
+                 
+                 color: #ffc640;
+                 text-shadow: 0px 0px 0px rgb(232, 175, 41), 0px 1px 0px rgb(222, 165, 31), 0px 2px 0px rgb(211, 154, 20), 0px 3px 0px rgb(200, 143, 9), 0px 4px 0px rgb(189, 132, -2), 0px 5px 0px rgb(179, 122, -12), 0px 6px 0px rgb(168, 111, -23), 0px 7px 0px rgb(157, 100, -34), 0px 8px 7px rgba(0, 0, 0, 0.55), 0px 8px 1px rgba(0, 0, 0, 0.5), 0px 0px 7px rgba(0, 0, 0, .2), 0px 0px 8px #ffc640, 0px 5px 5px #ffc640;
+             }
+         }
+		 
+         /* Animation | Delays */
+
+         .anim-delay-1s {
+             animation-delay: 1s;
+         }
+		 
+         .anim-delay-2s {
+             animation-delay: 2s;
+         }
+		 
+         /* Animation | Fill Modes */
+         
+         .anim-fill-backwards {
+             animation-fill-mode: backwards;
+         }
+		 
+         /* Animation | Duration Timings */
+         
+         .anim-2s {
+             animation-duration: 2s;
+         }
+		 
+         .anim-4s {
+             animation-duration: 4s;
+         }
+		 
+         /* Animation | Fade-In */
+         
+         @keyframes fadeIn {
+             0% {
+                 opacity: 0;
+             }
+             100% {
+                 opacity: 1;
+             }
+         }
+		 
+         .fadeIn {
+             animation-name: fadeIn;
+         }
+      </style>
+      <script>
+         // ===== Google Analytics =====
+         //(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         //(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+         //m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         //})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+         //
+         //ga('create', 'UA-58345165-1', 'auto');
+         //ga('send', 'pageview');
+         //=============================
+      </script>
+      <script type="text/javascript">
+         /* (c) 2016 icelane.net | JS | Main */
+         
+         function init() {
+         	var body = document.body;
+         	var meow = document.getElementById("meow");
+         	var cat = document.getElementById("cat");
+         	meow.addEventListener("touchstart", openCat, false);
+         	meow.addEventListener("click", openCat);
+         	cat.addEventListener("touchstart", closeCat, false);
+         	cat.addEventListener("click", closeCat);
+         }
+         
+         function openCat(e){
+			var bg    = document.getElementById("Background");
+			var bgimg = document.getElementById("BackImage");
+         	var meow  = document.getElementById("meow");
+         	var cat   = document.getElementById("cat");
+			
+			bg.className    += " cat-bg";
+			bgimg.className += " cat-bg-img";
+			meow.className  += " not-visible";
+         	cat.className    = String(cat.className).replace("not-visible","");
+         	
+         	if (e != null){
+         		if(e.target.tagName.toLowerCase() === 'a'){			
+         		}
+         		else{
+         			e.preventDefault();
+         			e.stopPropagation();
+         		}
+         	}
+         }
+         
+         function closeCat(e){
+		    var bg    = document.getElementById("Background");
+			var bgimg = document.getElementById("BackImage");
+         	var meow  = document.getElementById("meow");
+         	var cat   = document.getElementById("cat");
+			
+			bg.className     = String(bg.className).replace("cat-bg","");
+			bgimg.className  = String(bgimg.className).replace("cat-bg-img","");
+         	meow.className   = String(meow.className).replace("not-visible","");
+         	cat.className   += " not-visible";
+         	
+         	if (e != null){
+         		if(e.target.tagName.toLowerCase() === 'a'){			
+         		}
+         		else{
+         			e.preventDefault();
+         			e.stopPropagation();
+         		}
+         	}
+         }
+         	
+      </script>
+   </head>
+   <body>
+      <div id="Background" class="bg">
+         <img id="BackImage" class="bg-img anim-4s fadeIn" alt="icelane logo: 'Flame'" src="/data/images/icelane/icelane_fire_x1000.png"/>
+      </div>
+      <div id="meow" class="rainbow">MEOW</div>
+      <div id="cat" class="rainbow not-visible">
+ _                        
+ \`*-.                    
+  )  _`-.                 
+ .  : `. .                
+ : _   '  \               
+ ; *` _.   `*-._          
+ `-.-'          `-.       
+   ;       `       `.     
+   :.       .        \    
+   . \  .   :   .-'   .   
+   '  `+.;  ;  '      :   
+   :  '  |    ;       ;-. 
+   ; '   : :`-:     _.`* ;
+.*' /  .*' ; .*`- +'  `*' 
+`*-*   `*-*  `*-*'        
+      </div>
+      <div id="Footer" class="effect-engraved-1 anim-2s anim-fill-backwards fadeIn">
+         &copy; 2016 icelane.net
+      </div>
+
+      <script type="text/javascript">
+         /* (c) 2016 icelane.net | JS | Init */
+         
+         (function() {
+             init()
+         })();
+      </script>
+   </body>
+</html>

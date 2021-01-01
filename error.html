@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<!-- (c) 2018 icelane.net | HTML | Index -->
+<html lang="en">
+   <head>
+      <meta charset="utf-8" />
+      <meta name="author" content="icelane.net" />
+      <meta name="description" content="HTTP error" />
+      <title>Error | icelane.net</title>
+      <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Questrial" />
+      <style>
+         body {
+		     position: absolute;
+			 width: 100%;
+			 height: 100%;
+			 top: 0px;
+			 left: 0px;
+			 right: 0px;
+			 bottom: 0px;
+             margin: 0px;
+             padding: 0px;
+             font-family: 'Questrial', sans-serif;
+             background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(229, 229, 229, 1) 100%);
+             background-repeat: no-repeat;
+             background-attachment: fixed;
+         }
+		 
+		 p{
+		    margin: 0px;
+			padding: 0px;
+		 }
+		 
+         .bg {
+             position: fixed;
+             top: 550px;
+             left: 30%;
+             bottom: 80px;
+             right: 30%;
+             height: auto;
+             width: 40%;
+             z-index: -9999;
+         }
+		 
+         .bg-img {
+             position: absolute;
+             height: auto;
+             width: auto;
+             bottom: 0px;
+             right: 0px;
+             left: 0px;
+             margin: auto;
+             max-height: 100%;
+             max-width: 100%;
+             border: 0;
+             object-fit: scale-down;
+         }
+		 
+         .cat-bg {
+             position: absolute;
+             top: calc(-170px + 25%);		 
+             left: 0;
+             right: 0;
+             height: 408px;
+             width: 400px;
+             margin: 0 auto;			 
+         }
+		 
+         .cat-bg-img {
+             position: absolute;
+             height: 70%;
+             bottom: -30px;
+             right: auto;
+             left: -300px;
+             margin: auto;
+             z-index: -9999;
+         }
+		  		 
+		 .top {
+		     margin-top: calc(50px + 5%);
+			 font-size: 60pt;
+		 }
+		 
+         #Footer {
+             font-size: 10pt;
+             text-align: center;
+             position: fixed;
+             bottom: 50px;
+             right: 0;
+             left: 0;
+             letter-spacing: 2px;
+             color: #3c3c3c;
+         }
+		 
+		 #Footer a {
+             font-size: 10pt;
+             text-align: center;
+             position: fixed;
+             bottom: 50px;
+             right: 0;
+             left: 0;
+             letter-spacing: 2px;
+             color: #3c3c3c;
+         }
+		#Footer a:link    {
+		  /* Applies to all unvisited links */
+		  text-decoration:  none;
+		  color: #3c3c3c;
+		} 
+		#Footer a:visited {
+		  /* Applies to all visited links */
+		  text-decoration:  none;
+		  color: #3c3c3c;
+		} 
+		#Footer a:hover   {
+		  /* Applies to links under the pointer */
+		  text-decoration:  none;
+		  color: #3c3c3c;
+		} 
+		#Footer a:active  {
+		  /* Applies to activated links */
+		  text-decoration:  none;
+		  color: #3c3c3c;
+		} 
+  
+         #meow {
+		     position: relative;
+			 top: calc(-170px + 25%);
+             font-size: 40pt;
+             transition: opacity 5s linear;
+         }
+		 
+		 #meow p:nth-child(1) {
+             font-size: 90pt;
+         }	
+		 
+		 #meow.top {
+	         cursor: pointer;
+			 top: calc(-70px + 25%);
+     	 }
+		 
+		 #meow.top p:nth-child(1) {
+		 	 font-size: 150pt;
+		 }
+		  
+		 #cat {
+		 	 position: relative;
+			 width: 450px;
+			 top: calc(-170px + 25%);
+			 margin-left: auto;
+			 margin-right: auto;
+			 margin-top: -70px;
+			 margin-bottom: -40px;
+             cursor: pointer;
+             font-size: 20pt;
+             white-space: pre-wrap;
+             word-wrap: break-word;
+             -moz-control-character-visibility: visible;
+             font-family: "Courier New", Courier, monospace;
+             letter-spacing: -2px;
+             line-height: 90%;
+             transition: opacity 0.5s linear;
+         }
+
+         .rainbow {
+             text-align: center;
+             animation: color_change 22s infinite linear;
+         }
+		 
+         .not-visible {
+             opacity: 0;
+             max-height: 0;
+             overflow: hidden;
+             white-space: normal;
+         }
+
+
+         /* Animation | Color-Fade: Rainbow-3D-GlowText */
+         
+         @keyframes color_change {
+             0% {
+                 /*yellow:           #ffc640*/
+                 
+                 color: #ffc640;
+                 text-shadow: 0px 0px 0px rgb(232, 175, 41), 0px 1px 0px rgb(222, 165, 31), 0px 2px 0px rgb(211, 154, 20), 0px 3px 0px rgb(200, 143, 9), 0px 4px 0px rgb(189, 132, -2), 0px 5px 0px rgb(179, 122, -12), 0px 6px 0px rgb(168, 111, -23), 0px 7px 0px rgb(157, 100, -34), 0px 8px 7px rgba(0, 0, 0, 0.55), 0px 8px 1px rgba(0, 0, 0, 0.5), 0px 0px 7px rgba(0, 0, 0, .2), 0px 0px 8px #ffc640, 0px 5px 5px #ffc640;
+             }
+             10% {
+                 /* green:           #a2d24f*/
+                 
+                 color: #a2d24f;
+                 text-shadow: 0px 0px 0px rgb(155, 203, 72), 0px 1px 0px rgb(148, 196, 65), 0px 2px 0px rgb(141, 189, 58), 0px 3px 0px rgb(133, 181, 50), 0px 4px 0px rgb(126, 174, 43), 0px 5px 0px rgb(119, 167, 36), 0px 6px 0px rgb(112, 160, 29), 0px 7px 0px rgb(105, 153, 22), 0px 8px 7px rgba(0, 0, 0, 0.55), 0px 8px 1px rgba(0, 0, 0, 0.5), 0px 0px 7px rgba(0, 0, 0, .2), 0px 0px 8px #a2d24f, 0px 5px 5px #a2d24f;
+             }
+             20% {
+                 /* darkgreen:      #448549*/
+                 
+                 color: #448549;
+                 text-shadow: 0px 0px 0px rgb(62, 127, 67), 0px 1px 0px rgb(56, 121, 61), 0px 2px 0px rgb(50, 115, 55), 0px 3px 0px rgb(44, 109, 49), 0px 4px 0px rgb(38, 103, 43), 0px 5px 0px rgb(32, 97, 37), 0px 6px 0px rgb(26, 91, 31), 0px 7px 0px rgb(20, 85, 25), 0px 8px 7px rgba(0, 0, 0, 0.55), 0px 8px 1px rgba(0, 0, 0, 0.5), 0px 0px 7px rgba(0, 0, 0, .2), 0px 0px 8px #448549, 0px 5px 5px #448549;
+             }
+             30% {
+                 /* turky:           #5bfff5*/
+                 
+                 color: #5bfff5;
+                 text-shadow: 0px 0px 0px rgb(64, 228, 217), 0px 1px 0px rgb(58, 222, 211), 0px 2px 0px rgb(52, 216, 205), 0px 3px 0px rgb(46, 210, 199), 0px 4px 0px rgb(40, 204, 193), 0px 5px 0px rgb(34, 198, 187), 0px 6px 0px rgb(28, 192, 181), 0px 7px 0px rgb(22, 186, 175), 0px 8px 7px rgba(0, 0, 0, 0.55), 0px 8px 1px rgba(0, 0, 0, 0.5), 0px 0px 7px rgba(0, 0, 0, .2), 0px 0px 8px #5bfff5, 0px 5px 5px #5bfff5;
+             }
+             40% {
+                 /* blue:           #48a0f5*/
+                 
+                 color: #48a0f5;
+                 text-shadow: 0px 0px 0px rgb(65, 154, 238), 0px 1px 0px rgb(57, 146, 230), 0px 2px 0px rgb(50, 139, 223), 0px 3px 0px rgb(42, 131, 215), 0px 4px 0px rgb(35, 124, 208), 0px 5px 0px rgb(27, 116, 200), 0px 6px 0px rgb(20, 109, 193), 0px 7px 0px rgb(13, 102, 186), 0px 8px 7px rgba(0, 0, 0, 0.55), 0px 8px 1px rgba(0, 0, 0, 0.5), 0px 0px 7px rgba(0, 0, 0, .2), 0px 0px 8px #48a0f5, 0px 5px 5px #48a0f5;
+             }
+             50% {
+                 /* darkblue:      #315ade*/
+                 
+                 color: #315ade;
+                 text-shadow: 0px 0px 0px rgb(37, 77, 210), 0px 1px 0px rgb(32, 72, 205), 0px 2px 0px rgb(27, 67, 200), 0px 3px 0px rgb(21, 61, 194), 0px 4px 0px rgb(16, 56, 189), 0px 5px 0px rgb(11, 51, 184), 0px 6px 0px rgb(6, 46, 179), 0px 7px 0px rgb(1, 41, 174), 0px 8px 7px rgba(0, 0, 0, 0.55), 0px 8px 1px rgba(0, 0, 0, 0.5), 0px 0px 7px rgba(0, 0, 0, .2), 0px 0px 8px #315ade, 0px 5px 5px #315ade;
+             }
+             60% {
+                 /* magenta:      #ff479e*/
+                 
+                 color: #ff479e;
+                 text-shadow: 0px 0px 0px rgb(237, 53, 139), 0px 1px 0px rgb(230, 46, 132), 0px 2px 0px rgb(223, 39, 125), 0px 3px 0px rgb(217, 33, 119), 0px 4px 0px rgb(210, 26, 112), 0px 5px 0px rgb(203, 19, 105), 0px 6px 0px rgb(196, 12, 98), 0px 7px 0px rgb(189, 5, 91), 0px 8px 7px rgba(0, 0, 0, 0.55), 0px 8px 1px rgba(0, 0, 0, 0.5), 0px 0px 7px rgba(0, 0, 0, .2), 0px 0px 8px #ff479e, 0px 5px 5px #ff479e;
+             }
+             70% {
+                 /* red:           #ff4848*/
+                 
+                 color: #ff4848;
+                 text-shadow: 0px 0px 0px rgb(248, 65, 65), 0px 1px 0px rgb(241, 58, 58), 0px 2px 0px rgb(234, 51, 51), 0px 3px 0px rgb(227, 44, 44), 0px 4px 0px rgb(220, 37, 37), 0px 5px 0px rgb(213, 30, 30), 0px 6px 0px rgb(206, 23, 23), 0px 7px 0px rgb(199, 16, 16), 0px 8px 7px rgba(0, 0, 0, 0.55), 0px 8px 1px rgba(0, 0, 0, 0.5), 0px 0px 7px rgba(0, 0, 0, .2), 0px 0px 8px #ff4848, 0px 5px 5px #ff4848;
+             }
+             80% {
+                 /* red:           #ff4848*/
+                 
+                 color: #ff4848;
+                 text-shadow: 0px 0px 0px rgb(248, 65, 65), 0px 1px 0px rgb(241, 58, 58), 0px 2px 0px rgb(234, 51, 51), 0px 3px 0px rgb(227, 44, 44), 0px 4px 0px rgb(220, 37, 37), 0px 5px 0px rgb(213, 30, 30), 0px 6px 0px rgb(206, 23, 23), 0px 7px 0px rgb(199, 16, 16), 0px 8px 7px rgba(0, 0, 0, 0.55), 0px 8px 1px rgba(0, 0, 0, 0.5), 0px 0px 7px rgba(0, 0, 0, .2), 0px 0px 8px #ff4848, 0px 5px 5px #ff4848;
+             }
+             90% {
+                 /* orange:          #ffa755*/
+                 
+                 color: #ffa755;
+                 text-shadow: 0px 0px 0px rgb(248, 161, 110), 0px 1px 0px rgb(241, 154, 103), 0px 2px 0px rgb(234, 147, 96), 0px 3px 0px rgb(227, 140, 89), 0px 4px 0px rgb(220, 133, 82), 0px 5px 0px rgb(213, 126, 75), 0px 6px 0px rgb(206, 119, 68), 0px 7px 0px rgb(199, 112, 61), 0px 8px 7px rgba(0, 0, 0, 0.55), 0px 8px 1px rgba(0, 0, 0, 0.5), 0px 0px 7px rgba(0, 0, 0, .2), 0px 0px 8px #ffa755, 0px 5px 5px #ffa755;
+             }
+             100% {
+                 /*yellow:           #ffc640*/
+                 
+                 color: #ffc640;
+                 text-shadow: 0px 0px 0px rgb(232, 175, 41), 0px 1px 0px rgb(222, 165, 31), 0px 2px 0px rgb(211, 154, 20), 0px 3px 0px rgb(200, 143, 9), 0px 4px 0px rgb(189, 132, -2), 0px 5px 0px rgb(179, 122, -12), 0px 6px 0px rgb(168, 111, -23), 0px 7px 0px rgb(157, 100, -34), 0px 8px 7px rgba(0, 0, 0, 0.55), 0px 8px 1px rgba(0, 0, 0, 0.5), 0px 0px 7px rgba(0, 0, 0, .2), 0px 0px 8px #ffc640, 0px 5px 5px #ffc640;
+             }
+         }
+		 
+         /* Animation | Delays */
+
+		 .anim-delay-05s {
+             animation-delay: 0.5s;
+         }
+		 
+         .anim-delay-1s {
+             animation-delay: 1s;
+         }
+		 
+         .anim-delay-2s {
+             animation-delay: 2s;
+         }
+		 
+         /* Animation | Fill Modes */
+         
+         .anim-fill-backwards {
+             animation-fill-mode: backwards;
+         }
+		 
+         /* Animation | Duration Timings */
+         
+         .anim-2s {
+             animation-duration: 2s;
+         }
+		 
+         .anim-4s {
+             animation-duration: 4s;
+         }
+		 
+         /* Animation | Fade-In */
+         
+         @keyframes fadeIn {
+             0% {
+                 opacity: 0;
+             }
+             100% {
+                 opacity: 1;
+             }
+         }
+		 
+		 /* Animation | Fade-InTop  */
+         
+         @keyframes fadeInTop {
+             0% {
+                 transform: translateY(-25%);
+                 opacity: 0;
+             }
+             100% {
+                 transform: translateY(0%);
+                 opacity: 1;
+             }
+         }
+		 
+         .fadeIn {
+			 /* animation: fadeIn 1s 1 cubic-bezier(0.4, 0, 1, 1); */
+			 animation-timing-function: cubic-bezier(0.4, 0, 1, 1);
+			 animation-name: fadeIn;
+         }
+		 
+		 .fadeInTop {
+			 animation: fadeInTop 1s 1 cubic-bezier(.68,-0.55,.27,1.55);
+		 }				
+      </style>
+      <script type="text/javascript">
+         // ===== Google Analytics =====
+         //(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         //(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+         //m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         //})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+         //
+         //ga('create', 'UA-58345165-1', 'auto');
+         //ga('send', 'pageview');
+         //=============================
+      </script>
+      <script type="text/javascript">
+         /* (c) 2018 icelane.net | JS | Main */
+		 
+		 function init(){
+			var error = window.location.search.substring(1);
+			if (!error) {
+				var m = window.location.toString().match("^(.*)/error/([^/]+)$");
+				error = m[2];
+			}
+			
+			setErrorMsg(error);
+            bugs(error);
+		 }
+		 
+         function bugs(error){
+            var mainCode = mainError(error);
+            if (mainCode != 500) return;
+
+			// default fruit fly bug:
+			new BugController({
+                imageSprite: '../style/lib/auz-bug/fly-sprite.png'
+			});
+
+			// default spiders:
+			new SpiderController({
+                imageSprite: '../style/lib/auz-bug/spider-sprite.png'
+			});
+         }
+
+		 function getParameterByName(name, url) {
+			if (!url) url = window.location.href;
+			name = name.replace(/[\[\]]/g, "\\$&");
+			var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+				results = regex.exec(url);
+			if (!results) return null;
+			if (!results[2]) return '';
+			return decodeURIComponent(results[2].replace(/\+/g, " "));
+		}
+
+		 var errorcode = 0;
+		 var errors = {
+				100:"Continue",
+				101:"Switching Protocols",
+				102:"Processing",
+				200:"OK",
+				201:"Created",
+				202:"Accepted",
+				203:"Non-Authoritative Information",
+				204:"No Content",
+				205:"Reset Content",
+				206:"Partial Content",
+				207:"Multi-Status",
+				208:"Already Reported",
+				226:"IM Used",
+				300:"Multiple Choices",
+				301:"Moved Permanently",
+				302:"Found (Moved Temporarily)",
+				303:"See Other",
+				304:"Not Modified",
+				305:"Use Proxy",
+				306:"(reserviert)",
+				307:"Temporary Redirect",
+				308:"Permanent Redirect",
+				400:"Bad Request",
+				401:"Unauthorized",
+				402:"Payment Required",
+				403:"Forbidden",
+				404:"Not Found",
+				405:"Method Not Allowed",
+				406:"Not Acceptable",
+				407:"Proxy Authentication Required",
+				408:"Request Timeout",
+				409:"Conflict",
+				410:"Gone",
+				411:"Length Required",
+				412:"Precondition Failed",
+				413:"Request Entity Too Large",
+				414:"URI Too Long",
+				415:"Unsupported Media Type",
+				416:"Requested range not satisfiable",
+				417:"Expectation Failed",
+				420:"Policy Not Fulfilled",
+				421:"Misdirected Request",
+				422:"Unprocessable Entity",
+				423:"Locked",
+				424:"Failed Dependency",
+				426:"Upgrade Required",
+				428:"Precondition Required",
+				429:"Too Many Requests",
+				431:"Request Header Fields Too Large",
+				451:"Unavailable For Legal Reasons",
+				418:"I’m a teapot",
+				425:"Unordered Collection",
+				444:"No Response",
+				449:"The request should be retried after doing the appropriate",
+				499:"Client Closed Request",
+				500:"Internal Server Error",
+				501:"Not Implemented",
+				502:"Bad Gateway",
+				503:"Service Unavailable",
+				504:"Gateway Timeout",
+				505:"HTTP Version not supported",
+				506:"Variant Also Negotiates",
+				507:"Insufficient Storage",
+				508:"Loop Detected",
+				509:"Bandwidth Limit Exceeded",
+				510:"Not Extended",
+				511:"Network Authentication Required"
+         }
+
+         function mainError(code){
+            var mainCode = code - (code % 100);
+			if (mainCode > 500) mainCode = 500;
+            return mainCode;
+         }
+
+		 function setErrorMsg(code){
+			 code = parseInt(code);
+			 if (isNaN(code) || code < 100) code = 100;
+			 errorcode = code;
+			 
+			 var msg = errors[code];
+			 if (!msg){
+			   	var mainCode = mainError(code);
+			    msg = errors[mainCode];
+			 }
+			 
+			 var title = "Error " + code + " | icelane.net";
+			 var desc = "HTTP error " + code + " " + msg;
+			 document.title = title;
+			 document.querySelector('meta[name="description"]').setAttribute("content", desc);
+			 document.getElementById("errorcode").innerHTML = code;
+			 document.getElementById("errormsg").innerHTML = msg;
+			 return msg;
+		 }
+         
+		 function openCat(e){
+			var bg    = document.getElementById("Background");
+			var bgimg = document.getElementById("BackImage");
+         	var meow  = document.getElementById("meow");
+         	var cat   = document.getElementById("cat");
+			
+			bg.className    += " cat-bg";
+			bgimg.className += " cat-bg-img";
+         	cat.className    = String(cat.className).replace("not-visible", "");
+         	meow.className   = String(meow.className).replace("top", "");
+			meow.setAttribute("onclick", "");
+			
+         	if (e != null){
+         		if(e.target.tagName.toLowerCase() === 'a'){			
+         		}
+         		else{
+         			e.preventDefault();
+         			e.stopPropagation();
+         		}
+         	}
+         }
+         
+         function closeCat(e){
+		    var bg    = document.getElementById("Background");
+			var bgimg = document.getElementById("BackImage");
+         	var meow  = document.getElementById("meow");
+         	var cat   = document.getElementById("cat");
+			
+			bg.className     = String(bg.className).replace("cat-bg","");
+			bgimg.className  = String(bgimg.className).replace("cat-bg-img","");
+         	cat.className   += " not-visible";
+			meow.className  += " top";
+			meow.setAttribute("onclick", "openCat();");
+			
+         	if (e != null){
+         		if(e.target.tagName.toLowerCase() === 'a'){			
+         		}
+         		else{
+         			e.preventDefault();
+         			e.stopPropagation();
+         		}
+         	}
+         }
+         	
+      </script>
+      <script type='text/javascript' src='../style/lib/auz-bug/bug-min.js'></script>
+      <script type='text/javascript'>
+
+	  </script>
+   </head>
+   <body onload="init();">
+      <div id="Background" class="bg cat-bg">
+         <img id="BackImage" class="bg-img cat-bg-img anim-4s fadeIn anim-delay-05s anim-fill-backwards" alt="icelane logo: 'Flame'" src="/data/images/icelane/icelane_fire_x512.png"/>
+      </div>
+      <div id="cat" onclick="closeCat();" class="rainbow">
+         <div class="fadeIn anim-delay-05s anim-4s anim-fill-backwards">
+ _                        
+ \`*-.                    
+  )  _`-.                 
+ .  : `. .                
+ : _   '  \               
+ ; *` _.   `*-._          
+ `-.-'          `-.       
+   ;       `       `.     
+   :.       .        \    
+   . \  .   :   .-'   .   
+   '  `+.;  ;  '      :   
+   :  '  |    ;       ;-. 
+   ; '   : :`-:     _.`* ;
+.*' /  .*' ; .*`- +'  `*' 
+`*-*   `*-*  `*-*'        
+         </div>
+      </div>
+	  <div id="meow"  onclick="" class="rainbow">
+	     <div class="fadeInTop">
+		 <p id="errorcode">418</p>
+		 <p id="errormsg">I’m a teapot</p>
+		 </div>
+	  </div>
+      <div id="Footer" class="anim-2s anim-fill-backwards fadeIn"><a href="https://icelane.net">
+         &copy; 2018 icelane.net</a>
+      </div>
+   </body>
+</html>

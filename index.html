@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+    <meta name="author" content="MrX13415" />
+    <meta name="description" content="Acrylic" />
+    <title>Acrylic</title>
+
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=0.7" />
+
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Questrial" />
+    <link rel="stylesheet" type="text/css" href="/style/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/style/css/acrylic.css">
+    <link rel="stylesheet" type="text/css" href="/style/css/dark.css">
+
+    <script>const isCountDownPage = false;</script>
+    <script src="/style/js/util.js" ></script>
+    <script src="/style/js/theme.js" ></script>
+    <script src="/style/js/main.js" ></script>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<!-- <link rel="manifest" href="/site.webmanifest"> -->
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#333a3d">
+    <meta name="msapplication-TileColor" content="#ededed">
+	<meta name="theme-color" content="#ffffff">
+</head>
+<body class="dark">
+    <div id="background" class="backgroundtransition">
+        <div></div>
+        <div></div>
+    </div>
+    
+    <div id="overlaycontainer" class="hidden">
+    </div>
+
+    <div class="page">
+        <div id="menubuttonarray">
+            <button id="countdownbtn" title="Yet another countdown." class="acrylic shadow imgbutton child" onclick="location.href='./countdown/'"><div></div></button>
+            <button id="settingsbtn" title="Configure the theme settings." class="acrylic shadow imgbutton child"><div></div></button>
+        </div>
+
+        <div id="settings" class="acrylic shadow overlay hidden">
+            <h5>Theme settings</h5>
+    
+            <button id="tooglebtn" title="Bright side or dark side of life?" class="acrylic imgtxtbutton child"><div></div>Toggle Theme</button>
+
+            <div class="listLabel">Hue <span id="colorHueVal"></span></div>
+            <input class="colorSlider" type="range" min="0" max="1000" value="500" id="colorHue">
+            <div class="listLabel">Saturation <span id="colorSatVal"></span></div>
+            <input class="colorSlider" type="range" min="0" max="1000" value="0" id="colorSat">
+            <div class="listLabel">Lightness <span id="colorLightVal"></span></div>
+            <input class="colorSlider" type="range" min="0" max="1000" value="0" id="colorLight">
+            <div class="listLabel">Alpha <span id="colorAlphaVal"></span></div>
+            <input class="colorSlider" type="range" min="0" max="1000" value="0" id="colorAlpha">
+            <div class="listLabel">Blur <span id="blurVal"></span> <span id="blurNotSupportedWarn" class="hidden">/!\ Not supported by Browser!</span></div>
+            <input class="colorSlider" type="range" min="0" max="500" value="140" id="blur">
+            
+            <div id="settingBtns">
+                <div id="settingBtns_Left">
+                    <button id="nextimgbtn" title="I'm board! move on to the next image." class="acrylic imgtxtbutton child"><div></div>Next Image</button>
+                    <label class="switch">Slideshow<input id="slideshowswitch" type="checkbox"><span></span></label>
+                    <label class="switch">Rainbow<input id="rainbowswitch" type="checkbox"><span></span></label>
+                </div>
+                <div id="settingBtns_Right">
+                    <button id="colorResetBtn" class="acrylic child" title="Hold CTRL to perform a full reset.">Reset</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="header" class="acrylic shadow parent">
+			<div id="logo">            
+				<img id="logoimg" alt="icelane logo: 'Flame'" src="https://www.icelane.net/data/images/icelane/icelane_fire_x512.png"/>
+                <div id="logostr">icelane.net</div>
+			</div>
+        </div>
+        <div id="content" class="acrylic shadow parent article">
+            <h1>Lorem Impsum</h1>
+            <p>Qui dolore reprehenderit anim laborum commodo pariatur cupidatat. Magna quis culpa deserunt deserunt in cillum eiusmod esse officia. Irure dolore Lorem et laboris ullamco sit commodo nostrud. Laboris exercitation consectetur voluptate reprehenderit veniam non magna laborum ea aliqua labore labore magna. Elit pariatur aute sunt mollit in officia velit nisi laboris sint veniam deserunt. Minim magna elit consectetur qui eiusmod magna.</p>
+            <div class="acrylic shadow child">
+                <h2>Aliquip duis</h2>
+                <p>Do sint culpa nisi reprehenderit exercitation fugiat aliquip velit. Cupidatat nostrud ex Lorem occaecat dolore aute ut. Et et est amet irure.</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita dicta repellat animi quibusdam, sunt amet odit cumque? Soluta debitis laudantium eos neque recusandae voluptate error ipsa ullam, aliquam quam earum?</p>
+                <p>laudantium eos neque recusandae voluptate error ipsa ullam, aliquam quam earum?</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+		<div class="acrylic parent">
+			&copy; 2020 icelane.net
+		</div>
+    </footer>
+
+</body>
+</html>
