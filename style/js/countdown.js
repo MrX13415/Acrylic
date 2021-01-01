@@ -35,6 +35,13 @@ class DateTime
         var d = new Date(date);
         return d.setDate(d.getDate() + 1);
     }
+
+    static AddHours(hours, dateobj = new Date())
+    {
+        var d = new Date();
+        d.setHours(d.getHours() + hours);
+        return d;
+    }
 }
 
 class CountdownProfile {
@@ -108,7 +115,7 @@ class CountdownProfile {
     {
         return CountdownProfile.getNew("custom", "profile_Custom", function(p)
         {
-            p.targetDate = new Date(DateTime.tomorrow());
+            p.targetDate = DateTime.AddHours(1);
         });
     }
 
