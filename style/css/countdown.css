@@ -36,21 +36,31 @@ html{
 
 #countdownsettings {
     grid-template-areas:
+        'header ... ...'
         'title date restart'
         'daily message message';
 }
-@media only screen and (max-width: 510px) {
+@media only screen and (max-width: 315px) {
+    #countdownsettings {
+        display: flex !important;
+        flex-flow: column;
+        align-items: stretch;
+    }
+}
+@media only screen and (min-width: 316px) and (max-width: 510px) {
     #countdownsettings {
         grid-template-areas:
+            'header ...'
             'title title'
             'date date'
             'daily restart'
             'message message'
     }
 }
-@media only screen and (min-width: 511px) and (max-width: 700px){
+@media only screen and (min-width: 511px) and (max-width: 580px){
     #countdownsettings {
         grid-template-areas:
+            'header ...'
             'title title'
             'date restart'
             'daily ...'
@@ -59,11 +69,16 @@ html{
 }
 
 
-#countdownsettings > :nth-child(1) { grid-area: title; }
-#countdownsettings > :nth-child(2) { grid-area: date; }
-#countdownsettings > :nth-child(3) { grid-area: restart; justify-self: end; }
-#countdownsettings > :nth-child(4) { grid-area: daily; align-self: start; margin-top: 12px; }
-#countdownsettings > :nth-child(5) { grid-area: message; }
+#countdownsettings > :nth-child(1) { grid-area: header; }
+#countdownsettings > :nth-child(2) { grid-area: title; }
+#countdownsettings > :nth-child(3) { grid-area: date; display: grid; grid-column-gap: 2px; grid-template-areas: '... ...'; }
+#countdownsettings > :nth-child(4) { grid-area: restart; justify-self: end; }
+#countdownsettings > :nth-child(5) { grid-area: daily; align-self: start; margin-top: 12px; }
+#countdownsettings > :nth-child(6) { grid-area: message; }
+@media only screen and (max-width: 315px) {
+    #countdownsettings > :nth-child(3) { display: flex; flex-flow: column; }
+    #countdownsettings > :nth-child(5) { align-self: flex-end; }
+}
 
 #restart { margin-bottom: -2px; }
 #countdownmsg { height: 60px; }
@@ -82,7 +97,7 @@ html{
 .countdowntext {
     font-size: 80pt;
     color: #000000a1;
-    text-shadow: 0 0 12px #000000bf;    
+    text-shadow: 0 0 12px #000000bf;
     text-align: center;
     transition: all 5s ease;
     margin: 0;
@@ -106,9 +121,11 @@ html{
     animation: color_change_3D 22s infinite linear;
 }
 
-
-@media screen and (max-width: 400px) {
-    .countdowntext { font-size: 25pt; letter-spacing: 5px; left: calc(5px / 2); }
+@media screen and (max-width: 315px) {
+    .countdowntext { font-size: 20pt; letter-spacing: 2px; left: calc(2px / 2); }
+}
+@media screen and (min-width: 316px) {
+    .countdowntext { font-size: 30pt; letter-spacing: 5px; left: calc(5px / 2); }
 }
 @media screen and (min-width: 401px) {
     .countdowntext { font-size: 40pt; letter-spacing: 8px; left: calc(8px / 2); }
@@ -126,6 +143,23 @@ html{
     .countdowntext { font-size: 130pt; letter-spacing: 18px; left: calc(18px / 2);  }
 }
 
+
+/* @media screen and (max-width: 315px) {
+    .countdowntext { font-size: 20pt; letter-spacing: 2px; left: calc(2px / 2); }
+    
+} */
+@media only screen and (max-height: 271px){
+    .countdowntext { font-size: 20pt; letter-spacing: 7px; left: calc(7px / 2); }
+}
+@media only screen and (min-height: 272px) and (max-height: 307px){
+    .countdowntext { font-size: 30pt; letter-spacing: 10px; left: calc(10px / 2); }
+}
+@media only screen and (min-height: 308px) and (max-height: 344px){
+    .countdowntext { font-size: 40pt; letter-spacing: 13px; left: calc(13px / 2); }
+}
+@media only screen and (min-height: 345px) and (max-height: 460px){
+    .countdowntext { font-size: 50pt; letter-spacing: 15px; left: calc(15px / 2); }
+}
 
 .asciiart {
    font-size: 20pt;

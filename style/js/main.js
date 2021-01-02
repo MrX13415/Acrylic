@@ -30,6 +30,11 @@ function onLoad(event)
     
     theme.initialize();
 
+    // Scroll with mouse on left or right edge
+    // for smaller screens.
+    var menu = document.getElementById("menubuttonarray");
+    var menuEdgeScroll = new EdgeScroll(menu);
+
     // overlay.container.element.addEventListener('click', function(event)
     // {
     //     alert(overlay.container);
@@ -126,6 +131,7 @@ function onLoad(event)
 
     console.log("Page ready");
 }
+
 
 function onScroll(event)
 {

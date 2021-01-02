@@ -6,7 +6,7 @@
     <meta name="description" content="Acrylic" />
     <title>Acrylic</title>
 
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=0.7" />
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1" />
 
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Questrial" />
     <link rel="stylesheet" type="text/css" href="/style/css/main.css">
@@ -38,34 +38,64 @@
 
     <div class="page">
         <div id="menubuttonarray">
-            <button id="countdownbtn" title="Yet another countdown." class="acrylic shadow imgbutton child" onclick="location.href='./countdown/'"><div></div></button>
-            <button id="settingsbtn" title="Configure the theme settings." class="acrylic shadow imgbutton child"><div></div></button>
+            <div>
+                <button id="countdownbtn" title="Yet another countdown." class="acrylic shadow imgbutton child" onclick="location.href='./countdown/'"><div></div></button>
+                <button id="settingsbtn" title="Configure the theme settings." class="acrylic shadow imgbutton child"><div></div></button>
+            </div>
         </div>
 
         <div id="settings" class="acrylic shadow overlay hidden">
-            <h5>Theme settings</h5>
-    
-            <button id="tooglebtn" title="Bright side or dark side of life?" class="acrylic imgtxtbutton child"><div></div>Toggle Theme</button>
-
-            <div class="listLabel">Hue <span id="colorHueVal"></span></div>
-            <input class="colorSlider" type="range" min="0" max="1000" value="500" id="colorHue">
-            <div class="listLabel">Saturation <span id="colorSatVal"></span></div>
-            <input class="colorSlider" type="range" min="0" max="1000" value="0" id="colorSat">
-            <div class="listLabel">Lightness <span id="colorLightVal"></span></div>
-            <input class="colorSlider" type="range" min="0" max="1000" value="0" id="colorLight">
-            <div class="listLabel">Alpha <span id="colorAlphaVal"></span></div>
-            <input class="colorSlider" type="range" min="0" max="1000" value="0" id="colorAlpha">
-            <div class="listLabel">Blur <span id="blurVal"></span> <span id="blurNotSupportedWarn" class="hidden">/!\ Not supported by Browser!</span></div>
-            <input class="colorSlider" type="range" min="0" max="500" value="140" id="blur">
-            
-            <div id="settingBtns">
-                <div id="settingBtns_Left">
-                    <button id="nextimgbtn" title="I'm board! move on to the next image." class="acrylic imgtxtbutton child"><div></div>Next Image</button>
-                    <label class="switch">Slideshow<input id="slideshowswitch" type="checkbox"><span></span></label>
-                    <label class="switch">Rainbow<input id="rainbowswitch" type="checkbox"><span></span></label>
+            <div id="themesettings">
+                <div>
+                    <h5>Theme settings</h5>
+                    <button id="tooglebtn" title="Bright or dark side of life?" class="acrylic imgtxtbutton child"><div></div>Toggle Theme</button>
                 </div>
-                <div id="settingBtns_Right">
-                    <button id="colorResetBtn" class="acrylic child" title="Hold CTRL to perform a full reset.">Reset</button>
+
+                <div>
+                    <div>
+                        <div class="listLabel">Hue 
+                            <span id="colorHueVal" data-mate="colorHueEdit"></span>
+                            <input id="colorHueEdit" data-mateCtrl="colorHueVal" data-mateData="colorHue" data-mateDataDiv="1000" class="hidden" />
+                        </div>
+                        <input class="colorSlider" type="range" min="0" max="1000" value="500" id="colorHue">
+                    </div>
+                    <div>
+                        <div class="listLabel">Saturation 
+                            <span id="colorSatVal" data-mate="colorSatEdit"></span>
+                            <input id="colorSatEdit" data-mateCtrl="colorSatVal" data-mateData="colorSat" data-mateDataDiv="10" class="hidden" />
+                        </div>
+                        <input class="colorSlider" type="range" min="0" max="1000" value="0" id="colorSat">
+                    </div>
+                    <div>
+                        <div class="listLabel">Lightness 
+                            <span id="colorLightVal" data-mate="colorLightEdit"></span>
+                            <input id="colorLightEdit" data-mateCtrl="colorLightVal" data-mateData="colorLight" data-mateDataDiv="10" class="hidden" />
+                        </div>
+                        <input class="colorSlider" type="range" min="0" max="1000" value="0" id="colorLight">
+                    </div>
+                    <div>
+                        <div class="listLabel">Alpha 
+                            <span id="colorAlphaVal" data-mate="colorAlphaEdit"></span>
+                            <input id="colorAlphaEdit" data-mateCtrl="colorAlphaVal" data-mateData="colorAlpha" data-mateDataDiv="10" class="hidden" />
+                        </div>
+                        <input class="colorSlider" type="range" min="0" max="1000" value="0" id="colorAlpha">
+                    </div>
+                    <div>
+                        <div class="listLabel">Blur 
+                            <span id="blurVal" data-mate="blurEdit"></span>
+                            <input id="blurEdit" data-mateCtrl="blurVal" data-mateData="blur" data-mateDataDiv="10" class="hidden" /> 
+                            <span id="blurNotSupportedWarn" class="hidden">/!\ Not supported by Browser!</span>
+                        </div>
+                        <input class="colorSlider" type="range" min="0" max="500" value="140" id="blur">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="switch">Rainbow<input id="rainbowswitch" type="checkbox"><span></span></label>
+                    <label class="switch">Slideshow<input id="slideshowswitch" type="checkbox"><span></span></label>
+                    <div></div>
+                    <button id="nextimgbtn" title="I'm board! move on to the next image." class="acrylic imgtxtbutton child"><div></div>Next Image</button>
+                    <button id="colorResetBtn" class="acrylic child" title="Hold CTRL to perform a full reset.">Reset</button>    
                 </div>
             </div>
         </div>

@@ -374,3 +374,50 @@ class Cookies
         document.cookie = cookie;
     }
 }
+
+
+class EdgeScroll
+{
+    constructor(element)
+    {
+        this.element = element;
+
+        this.element.addEventListener("mouseenter", this.__enter.bind(this), false);
+        this.element.addEventListener("mousemove", this.__move.bind(this), false);
+        this.element.addEventListener("mouseleave", this.__leave.bind(this), false);
+
+        this.timer = null;
+        this.event = null;
+    }
+
+    __enter(ev)
+    {
+        if (this.timer != null) clearInterval(this.timer);
+        this.event = ev;
+        this.timer = setInterval(this.update.bind(this), 16);
+    }
+    __move(ev)
+    {
+        this.event = ev;
+    }
+    __leave()
+    {
+        clearInterval(this.timer);
+    }
+
+    update()
+    {
+        var e = this.element;
+        var l = this.event.x <= (20);
+        var r = this.event.x >= (e.clientWidth - 20);
+
+        if (l && e.scrollLeft > 0)
+        {
+            e.scrollLeft -= 2;
+        }
+        if (r && e.scrollLeft < e.scrollWidth)
+        {
+            e.scrollLeft += 2;
+        }
+    }
+}
