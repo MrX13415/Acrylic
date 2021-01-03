@@ -81,11 +81,12 @@ html{
 }
 
 #restart { margin-bottom: -2px; }
-#countdownmsg { height: 60px; }
-
-
-
-
+#countdownmsg {
+    height: 60px;
+    max-width: 351px;
+     /* Prevents resizing to move other elements around */
+    margin: 0 !important;
+}
 
 #countdown {
     left: 0;
