@@ -1,5 +1,6 @@
 
 const cssClass_ASCIIArt = "asciiart";
+const cssClass_CountdownDays = "countdowntext-days";
 
 class DateTime
 {
@@ -578,7 +579,12 @@ class Countdown {
 
         // Display the result in the element
         var output = "";
-        if (days > 0) output += days.toString() + "<br>";
+        if (days > 0){
+            var div = "<div class=\"" + cssClass_CountdownDays + "\">";
+            div += days.toString();
+            div += "</div>";
+            output += div;
+        }
         output += hours.toString().padStart(2, '0') + ":";
         output += minutes.toString().padStart(2, '0') + ":";
         output += seconds.toString().padStart(2, '0');

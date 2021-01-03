@@ -88,14 +88,15 @@ html{
 
 
 #countdown {
-    width: auto !important;
-    height: auto !important;
-    padding: 2% 10%;
     left: 0;
+    padding: 5% 10%;
+    width: calc(100% - 30px);
+    height: auto !important;
 }
 
 .countdowntext {
-    font-size: 80pt;
+    font-size: 170px;
+    line-height: 100%;
     color: #000000a1;
     text-shadow: 0 0 12px #000000bf;
     text-align: center;
@@ -105,7 +106,20 @@ html{
     position: relative;
     letter-spacing: 15px;
     left: calc(15px / 2);
-    transition: font-size 0.5s;
+    transition: font-size 0s;
+}
+.countdowntext-days {
+    font-size: 100px;
+    line-height: 100%;
+    transition: font-size 0s;
+}
+@media only screen and (max-width: 1000px) {
+    .countdowntext { font-size: 17vmin; letter-spacing: 1.5vmin; left: calc(1.5vmin / 2); }
+    .countdowntext-days { font-size: 10vmin; }
+}
+@media only screen and (max-height: 1000px) {
+    .countdowntext { font-size: 17vmin; letter-spacing: 1.5vmin; left: calc(1.5vmin / 2); }
+    .countdowntext-days { font-size: 10vmin; }
 }
 
 .dark .countdowntext {
@@ -121,46 +135,6 @@ html{
     animation: color_change_3D 22s infinite linear;
 }
 
-@media screen and (max-width: 315px) {
-    .countdowntext { font-size: 20pt; letter-spacing: 2px; left: calc(2px / 2); }
-}
-@media screen and (min-width: 316px) {
-    .countdowntext { font-size: 30pt; letter-spacing: 5px; left: calc(5px / 2); }
-}
-@media screen and (min-width: 401px) {
-    .countdowntext { font-size: 40pt; letter-spacing: 8px; left: calc(8px / 2); }
-}
-@media screen and (min-width: 601px) {
-    .countdowntext { font-size: 50pt; letter-spacing: 10px; left: calc(10px / 2);  }
-}
-@media screen and (min-width: 801px) {
-    .countdowntext { font-size: 80pt; letter-spacing: 13px; left: calc(13px / 2);  }
-}
-@media screen and (min-width: 1301px) {
-    .countdowntext { font-size: 100pt; }
-}
-@media screen and (min-width: 1601px) {
-    .countdowntext { font-size: 130pt; letter-spacing: 18px; left: calc(18px / 2);  }
-}
-
-
-/* @media screen and (max-width: 315px) {
-    .countdowntext { font-size: 20pt; letter-spacing: 2px; left: calc(2px / 2); }
-    
-} */
-@media only screen and (max-height: 271px){
-    .countdowntext { font-size: 20pt; letter-spacing: 7px; left: calc(7px / 2); }
-}
-@media only screen and (min-height: 272px) and (max-height: 307px){
-    .countdowntext { font-size: 30pt; letter-spacing: 10px; left: calc(10px / 2); }
-}
-@media only screen and (min-height: 308px) and (max-height: 344px){
-    .countdowntext { font-size: 40pt; letter-spacing: 13px; left: calc(13px / 2); }
-}
-@media only screen and (min-height: 345px) and (max-height: 460px){
-    .countdowntext { font-size: 50pt; letter-spacing: 15px; left: calc(15px / 2); }
-}
-
 .asciiart {
    font-size: 20pt;
    white-space: pre-wrap;
@@ -171,7 +145,6 @@ html{
    line-height: 90%;
    transition: 0.1s linear;
 }
-
 
 @keyframes color_change {
     0% { /*yellow: 		#ffc640*/
