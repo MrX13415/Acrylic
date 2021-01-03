@@ -86,6 +86,17 @@ html{
     max-width: 351px;
      /* Prevents resizing to move other elements around */
     margin: 0 !important;
+    transition: width linear 0s, height linear 0s;
+}
+@media only screen and (max-width: 580px){
+    #countdownmsg {
+        max-width: calc(100vw - 36px - 30px);
+    }
+}
+@media only screen and (max-width: 340px) {
+    #countdownmsg {
+        max-width: calc(100vw - 36px - 6px);
+    }
 }
 
 #countdown {
