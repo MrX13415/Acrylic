@@ -85,6 +85,16 @@ class CountdownProfile {
         }
     }
 
+	static profileKeys()
+	{
+		var keys = [];
+		for (var p of CountdownProfile.profiles)
+        {
+            keys.push(p.key)
+        }
+		return keys;
+	}
+	
     static setButtonState(btn, active)
     {
         if (btn == null) return;
@@ -407,7 +417,9 @@ class Countdown {
 
         this.profile = profile;
         this.profile.setActive();
-        
+
+        if (history) window.history.pushState( {name: name} , '', `?profile=${profile.key}` );
+
         console.log("[Countdown] Profile '" + this.profile.title + "' loaded.");
 
         if(this.settingsDialog != null)
@@ -416,7 +428,7 @@ class Countdown {
             this.start();
         }
     }
-    
+
     // Find the distance between now and the count down date
     get distance() {
         return this.profile.targetDate.getTime() - new Date().getTime();
@@ -641,7 +653,7 @@ function onLoad(event)
 {
     // ----------------------------------------
     // Init page
-    
+
     var settingsbtn = document.getElementById("settingsbtn");
     if (settingsbtn != null) settingsbtn.addEventListener('click', countdownSettingsBtnClick, false);
 
@@ -686,6 +698,8 @@ function onLoad(event)
         console.log("  time=<time> - Set countdown date to today with the given time (Format: HH:MM:SS)");
         console.log("  msg=<text> - Sets the text to display after the end of the countdown is reached.");
         console.log("  title=<title> - Sets the title for this countdown.");
+		console.log("  profile=<name> - Sets the countdown profile.");
+		console.log(CountdownProfile.profileKeys());
     }
 
     // -----
@@ -704,13 +718,13 @@ function onLoad(event)
 
     // ------
 
-    var date = getParameterByName('date');    
+    var date = getParameterByName('date');
     if (date != null){
         countdown.date = date;
         console.log("[Countdown] Date: '" + countdown.date + "'");
     }
 
-    var time = getParameterByName('time');    
+    var time = getParameterByName('time');
     if (time != null)
     {
         if (date == null) countdown.date = new Date();
@@ -723,7 +737,7 @@ function onLoad(event)
     {
         countdown.setTitle(title);
     }
-    
+
     var msg1 = getParameterByName('msg');
     var msg2 = getParameterByName('message');
     var txt = getParameterByName('text');
@@ -741,7 +755,6 @@ function onLoad(event)
 
     countdown.setProfile(profile);
     countdown.start();
-
 }
 
 
