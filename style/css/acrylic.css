@@ -26,7 +26,7 @@
 
 /*made color rgba removed opacity property*/
 
-.acrylic::before {
+/* .acrylic::before {
   content: "";
   position: absolute;
   height: 100%;
@@ -37,7 +37,7 @@
   z-index: -1;
   -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
-}
+} */
 
 .acrylic::after {
   content: "";
