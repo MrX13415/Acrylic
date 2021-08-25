@@ -1,0 +1,121 @@
+* {
+	box-sizing: border-box;
+	transition: all 0.8s linear, color 0s, outline-offset 0s;
+}
+
+body {
+    margin: 0px auto;
+    max-width: 1000px;
+    
+    line-height: 1.4;
+    text-align: justify;
+    font-family: 'Questrial', sans-serif;
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.75);
+    margin-bottom: 100px;
+    transition: color 0.2s;
+
+    background-color: hsl(0deg 0% 95%);
+    /* background-image: linear-gradient(hsla(0, 0%, 100%, 0.1) 2px, transparent 0)
+    , linear-gradient(90deg, hsla(0, 0%, 100%, .1) 2px, transparent 0)
+    , linear-gradient(hsla(0, 0%, 100%, 0.08) 1px, transparent 0)
+    , linear-gradient(90deg, hsla(0, 0%, 100%, .08) 1px, transparent 0)
+    /* , url(./../img/noisy-texture-100x100.png) noise texture */; */
+/* 
+    background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+    background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px; */
+}
+
+footer{
+    position: fixed !important;
+    width: calc(100% + 2px);
+    left: -1px;
+    bottom: 0;
+    background: rgb(242,242,242);
+    background: linear-gradient(0deg, rgba(242,242,242,1) 0%, rgba(242,242,242,1) 50%, rgba(255,255,255,0) 100%);
+    padding-top: 20px;
+}
+
+footer > div {
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.60);
+    padding: 1em !important;
+    margin: 0 !important;
+}
+
+h1 {
+    font-weight: normal;
+    font-size: 30px;
+    color: rgba(0, 0, 0, 0.60);
+    transition: color 0.2s;
+}
+
+h2 {
+    font-variant-caps: all-small-caps;
+    font-weight: bold;
+    font-size: 30px;
+    color: rgba(0, 0, 0, 0.60);
+    transition: color 0.2s;
+}
+
+.page {
+    padding: 1em;
+    padding-top: 64px;
+}
+@media only screen and (max-width: 700px) {
+    .page { padding: 0px; padding-top: 64px; }
+}
+@media only screen and (max-width: 340px){
+    .page { padding: 0px; padding-top: 50px; }
+}
+
+
+.page > div {
+	margin: 15px;
+}
+@media only screen and (max-width: 340px) {
+    .page > div { margin: 15px 3px; width: calc(100% - 6px); }
+}
+@media only screen and (min-width: 341px) and (max-width: 700px) {
+    .page > div { width: calc(100% - 30px); }
+}
+@media only screen and (min-width: 701px) {
+    .page > div { width: calc(70% - 30px); }
+}
+
+
+.article {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: row wrap;
+}
+
+.img {
+    font-size: 9pt;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: hsl(0deg 0% 60%);
+}
+.img img {
+    width: 100%;
+}
+
+#article-info {
+    font-size: 9pt;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: hsl(0deg 0% 60%);
+}
+#article-source {
+    font-size: 9pt;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: hsl(0deg 0% 60%);
+}
+#article-sources {
+    position: relative;
+    left: 40px;
+    top: -14px;
+}
+
