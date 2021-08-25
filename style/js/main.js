@@ -46,7 +46,7 @@ function onLoad(event)
     // ----------------------------------------
     // Parse url query parametes
 
-    var help = Site.Parameter('help');
+    var help = Site.parameter('help');
     if (help.exists)
     {
         console.log("URL query parameters:");
@@ -58,7 +58,7 @@ function onLoad(event)
 
     // -----
 
-    var img = Site.Parameter('img');
+    var img = Site.parameter('img');
     if (img.exists)
     {
         var isp = Session.isSamePage;
@@ -88,9 +88,9 @@ function onLoad(event)
     
     // -----
 
-    var paramTheme = Site.Parameter('theme');
-    var paramDark = Site.Parameter('dark');
-    var paramLight = Site.Parameter('light');
+    var paramTheme = Site.parameter('theme');
+    var paramDark = Site.parameter('dark');
+    var paramLight = Site.parameter('light');
 
     if (paramDark.exists || paramTheme.is("dark", "0")) 
     {
@@ -105,7 +105,7 @@ function onLoad(event)
 
     // -----
 
-    var slideshow = Site.Parameter('slideshow');
+    var slideshow = Site.parameter('slideshow');
     if (slideshow.exists && !slideshow.enabled)
     {
         theme.background.slideshow.stop();
@@ -118,7 +118,7 @@ function onLoad(event)
 
     // -----
 
-    var rainbow = Site.Parameter('rainbow');
+    var rainbow = Site.parameter('rainbow');
     if (rainbow.enabled) theme.rainbow.start();
     else theme.rainbow.stop();
 

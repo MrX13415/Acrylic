@@ -1,33 +1,6 @@
 const cssClass_RainbowText = "rainbowtext";
 const cssClass_RainbowText3D = "rainbowtext3D";
 
-function getParameterByName(name, url) {
-    if (!url) url = window.location.href;
-    name = name.replace(/[\[\]]/g, "\\$&");
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, " "));
-}
-
-
-function IsParameterEnabled(name, url) {
-    var param = getParameterByName(name, url);
-    if (param == null) return false;
-    
-    param = param.toLocaleLowerCase();
-    if (param == "1") return true;
-    if (param == "yes") return true;
-    if (param == "on") return true;
-    if (param == "true") return true;
-    if (param == "active") return true;
-    if (param == "enable") return true;
-    if (param == "enabled") return true;
-
-    return true;
-}
-
 function setInnerHtml(className, text){
     var elements = document.getElementsByClassName(className);
     for(var i = 0; i < elements.length; i++)
@@ -113,15 +86,75 @@ class CSS {
     }
 }
 
-class URLQueryParameter
-{
-    constructor(name, url=null) {
-        this.url = url ? url : window.location.href;
+
+class UrlParameter{
+    constructor(query, name) {
+        this.query = query;
         this.name = name;
     }
 
-    get enabled() {
+    get value(){
+        return this.query.value(this.name);
+    }
+    get enabled(){
+        return this.query.enabled(this.name);
+    }
+    get empty()
+    {
         var v = this.value;
+        return v != null && v.length == 0;
+    }
+
+    get set()
+    {
+        this.query.set(this.name, value);
+    }
+
+    get has()
+    {
+        return this.query.has(this.name);
+    }
+    get exists()
+    {
+        return this.has;
+    }
+
+    is(...values)
+    {
+        var a = this.value ? this.value.toLocaleLowerCase() : this.value;
+        for (var i = 0; i < values.length; i++) {
+            var b = values[i] ? values[i].toLocaleLowerCase() : values[i];
+            if (a == b) return true;
+        }
+        return false;
+    }
+
+    delete()
+    {
+        this.query.delete(this.name);
+    }
+}
+
+class UrlParams
+{
+    constructor(url=null) {
+        this.url = url ? url : window.location.search;
+        this.query = new URLSearchParams(this.url);
+    }
+
+    get(name)
+    {
+        return new UrlParameter(this, name);
+    }
+
+    value(name)
+    {
+        return this.query.get(name);
+    }
+
+    enabled(name)
+    {
+        var v = this.value(name);
         if (v == null) return false;
 
         v = v.toLocaleLowerCase();
@@ -135,48 +168,52 @@ class URLQueryParameter
 
         return false;
     }
-    
-    get value()
+
+    set(name, value)
     {
-        name = this.name.replace(/[\[\]]/g, "\\$&");
-        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-            results = regex.exec(this.url);
-
-        if (!results) return null;
-        if (!results[2]) return '';
-
-        return decodeURIComponent(results[2].replace(/\+/g, " "));
+        if (value == null) this.delete(name);
+        else this.query.set(name, value);
     }
 
-    get exists()
+    delete(name)
     {
-        return this.value != null;
+        this.query.delete(name);
     }
 
-    is(...values)
+    has(name)
     {
-        var a = this.value ? this.value.toLocaleLowerCase() : this.value;
-        for (var i = 0; i < values.length; i++) {
-            var b = values[i] ? values[i].toLocaleLowerCase() : values[i];
-            if (a == b) return true;
-        }
+        return this.value(name) != null;
     }
 
-    static Get(name, url=null) {
-        return new URLQueryParameter(name, url);
+    toString()
+    {
+        return this.query.toString();
     }
 
-    static getValue(name, url) {
-        var p = new URLQueryParameter(name, url);
-        return p.value;
+    apply()
+    {
+        window.history.pushState( {name: name} , '', `?${this.toString()}` );
+    }
+
+    reset()
+    {
+        this.query = new URLSearchParams(this.url);
+    }
+
+    static getCurrent()
+    {
+        return new UrlParams(null);
     }
 }
 
 class Site {
+
+    static __query = null;
+
     static setElement(identifier, type)
     {
         var elemnt = document.getElementById(identifier)
-        if (elemnt == null) 
+        if (elemnt == null)
         {
             elemnt = document.createElement(type);
             document.body.appendChild(elemnt);
@@ -187,14 +224,14 @@ class Site {
 
     static setImg(identifier, url, css=""){
         var img = this.setElement(identifier, 'img');
-        
+
         img.setAttribute('id', identifier);
         img.setAttribute('src', url);
         if (css.length > 0) img.setAttribute('style', css);
 
         return img;
     }
-    
+
     static setStyle(identifier, css){
         var style = this.setElement(identifier, 'style');
 
@@ -211,9 +248,21 @@ class Site {
         if (def != null) def.remove();
     }
 
-    static Parameter(name)
+    static get query()
     {
-        return URLQueryParameter.Get(name);
+        if (Site.__query == null) Site.__query = UrlParams.getCurrent()
+        return Site.__query;
+    }
+
+    static parameter(name)
+    {
+        return Site.query.get(name);
+    }
+    
+    static setParameter(name, value)
+    {
+        Site.query.set(name, value);
+        Site.query.apply();
     }
 
 }
@@ -375,7 +424,6 @@ class Cookies
     }
 }
 
-
 class EdgeScroll
 {
     constructor(element)
@@ -420,4 +468,27 @@ class EdgeScroll
             e.scrollLeft += 2;
         }
     }
+}
+
+class HTTP
+{
+    static async requestText(url, contentType=null)
+    {
+        return await fetch(url)
+            .then((response) =>
+            {
+                if (contentType != null)
+                {
+                    var type = response.headers.get('Content-Type');
+                    if (type != contentType) throw new Error("Unexpected content type: " + type);
+                }
+
+                return response.text();
+            })
+            .then((text) => { return text; })
+            .catch((err) => { throw err; });
+    }
+
+    static async requestHTML(url) { return HTTP.requestText(url, 'text/html'); }
+    static async requestPlainText(url) { return HTTP.requestText(url, 'text/plain'); }
 }

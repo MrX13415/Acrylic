@@ -632,7 +632,7 @@ class ThemeSettingsDialog {
         this.blurSlider;
 
         this.blurNotSupportedWarn; 
-                
+
         this.nextImgBtn;
         this.slideshowSwitch;
         this.rainbowSwitch;
@@ -670,7 +670,7 @@ class ThemeSettingsDialog {
         this.blurEdit = document.getElementById("blurEdit");
 
         this.blurNotSupportedWarn = document.getElementById("blurNotSupportedWarn");
-        
+
         this.nextImgBtn = document.getElementById("nextimgbtn");
         this.slideshowSwitch = document.getElementById("slideshowswitch");
         this.rainbowSwitch = document.getElementById("rainbowswitch");

@@ -60,13 +60,38 @@ class CountdownProfile {
         this.title = "Countdown";
         this.message = "";
         this.daily = false;
-        this.targetDate = null;
+        this.targetDate = DateTime.dateYear(DateTime.nextYear);
         this.mode3D = false;
         this.modeASCII = false;
 
         this.locked_daily = false;
         this.locked_date = false;
         this.locked_time = false;
+    }
+
+    get date() {
+        return DateTime.getDate(this.targetDate);
+    }
+    get datetime() {
+        return this.date + " " + this.time;
+    }
+    set datetime(datetime) {
+        this.targetDate = new Date(datetime);
+    }
+
+    set date(date) {
+        this.datetime = date + " " + DateTime.getTime(this.targetDate);
+    }
+
+    get time()
+    {
+        return DateTime.getTime(this.targetDate);
+    }
+    set time(time)
+    {
+        // get target date of today for the given time.
+        var dateToday = DateTime.timeToday(time);
+        this.targetDate.setHours(dateToday.getHours(), dateToday.getMinutes(), dateToday.getSeconds());
     }
 
     is(profile)
@@ -83,6 +108,60 @@ class CountdownProfile {
             if (p.button == null) continue;
             CountdownProfile.setButtonState(p.button, p == this);
         }
+        this.updateUrl();
+    }
+
+    loadUrl()
+    {
+        var title = Site.parameter('title');
+        if (title.exists)
+        {
+            this.title = title.value;
+            console.log("[Countdown] Title: '" + this.title + "'");
+        }
+
+        var date = Site.parameter('date');
+        if (date.exists && !this.locked_date){
+            this.date = date.value;
+            console.log("[Countdown] Date: '" + this.date + "'");
+        }
+
+        var time = Site.parameter('time');
+        if (time.exists && !this.locked_time)
+        {
+            this.time = time.value
+            console.log("[Countdown] Time: '" + this.time + "'");
+        }
+
+        var daily = Site.parameter('daily');
+        if (daily.exists && !this.locked_daily)
+        {
+            this.daily = daily.enabled;
+            console.log("[Countdown] Daily: '" + this.daily + "'");
+        }
+
+        var msg1 = Site.parameter('msg');
+        var msg2 = Site.parameter('message');
+        var txt = Site.parameter('text');
+        if (msg1.exists) txt = msg1;
+        if (msg2.exists) txt = msg2;
+        if (txt.exists)
+        {
+            this.message = txt.value;
+            console.log("[Countdown] Messsage: '" + this.message + "'");
+            if (title.exists) document.title = document.title.replace("New Year", txt.value);
+        }
+    }
+
+    updateUrl()
+    {
+        Site.query.set("profile", this.key);
+        Site.query.set("title", this.title);
+        Site.query.set("date", this.date);
+        Site.query.set("time", this.time);
+        Site.query.set("daily", this.daily);
+        Site.query.set("msg", this.message);
+        Site.query.apply();
     }
 
 	static profileKeys()
@@ -103,12 +182,23 @@ class CountdownProfile {
 
     static get(key)
     {
+        if (key == null) return null;
         if (CountdownProfile.profiles == null) return null;
         for (var p of CountdownProfile.profiles)
         {
             if (p.key == key) return p;
         }
         return null;
+    }
+
+    static getFromUrl()
+    {
+        var profile = Site.parameter('profile');
+        if (!profile.has || profile.empty) return null;
+
+        var p = CountdownProfile.get(profile.value);
+        if (p == null) console.error("[Countdown] Profile: '" + profile.value + "' not found!");
+        return p;
     }
 
     static getNew(key="", buttonId="", create)
@@ -181,12 +271,12 @@ class CountdownProfile {
 class CountdownSettingsDialog {
     constructor(manager) {
         this.manager = manager;
-        
+
         this.title;
 
         this.targetdate;
         this.targettime;
-        
+
         this.dailyswitch;
 
         this.message;
@@ -195,7 +285,7 @@ class CountdownSettingsDialog {
     register()
     {
         this.title = document.getElementById("countdowntitle");
-        
+
         this.targetdatecontainer = document.getElementById("targetdatecontainer");  // For hidding
         this.targetdate = document.getElementById("targetdate");
         this.targettime = document.getElementById("targettime");
@@ -268,7 +358,6 @@ class CountdownSettingsDialog {
 
     onTitleEditable(event)
     {
-        //event.target.value = this.manager.title;
     }
     onTitleReadOnly(event)
     {
@@ -352,7 +441,7 @@ class CountdownSettingsDialog {
 	setBtnIconAnim_Spin3D(control, active)
 	{
         if (control == null) return false;
-        if (control.children.length == 0) return false;        
+        if (control.children.length == 0) return false;
         var icon = control.getElementsByTagName('div')[0];
         if (icon == null) return false;
         icon.classList.toggle('anim-Spin3D', active);
@@ -402,6 +491,7 @@ class Countdown {
 
         this.titleMaster = document.title;
 
+        this.profile = new CountdownProfile();
         this.setProfile(profile);
 
         this.timer = null;
@@ -410,15 +500,21 @@ class Countdown {
         this.settingsDialog = new CountdownSettingsDialog(this);
     }
 
+    initialize(defaultProfile = null)
+    {
+        if (defaultProfile == null) defaultProfile = new CountdownProfile();
+        var profile = CountdownProfile.getFromUrl();
+        if (profile == null) profile = defaultProfile;
+        profile.loadUrl();
+        this.setProfile(profile);
+    }
+
     setProfile(profile)
     {
-        if (profile == null) profile = new CountdownProfile();
-        if (profile.targetDate == null) profile.targetDate = DateTime.dateYear(DateTime.nextYear);
+        if (profile == null) return;
 
         this.profile = profile;
         this.profile.setActive();
-
-        if (history) window.history.pushState( {name: name} , '', `?profile=${profile.key}` );
 
         console.log("[Countdown] Profile '" + this.profile.title + "' loaded.");
 
@@ -434,37 +530,37 @@ class Countdown {
         return this.profile.targetDate.getTime() - new Date().getTime();
     }
 
-    get date() {
-        return DateTime.getDate(this.profile.targetDate);
+    get date(){
+        return this.profile.date;
     }
-    get datetime() {
-        return this.date + " " + this.time;
+    get datetime(){
+        return this.profile.datetime;
     }
-    set datetime(datetime) {
-        this.profile.targetDate = new Date(datetime);
+    set datetime(datetime){
+        this.profile.datetime = datetime;
+    }
+    set date(date){
+        if (this.locked_date) return;
+        this.profile.date = date;
+        Site.setParameter("date", date);
     }
 
-    set date(date) {
-        this.datetime = date + " " + DateTime.getTime(this.profile.targetDate);
+    get time(){
+        return this.profile.time;
     }
-
-    get time()
-    {
-        return DateTime.getTime(this.profile.targetDate);
-    }
-    set time(time)
-    {
-        // get target date of today for the given time.
-        var dateToday = DateTime.timeToday(time);
-        this.profile.targetDate.setHours(dateToday.getHours(), dateToday.getMinutes(), dateToday.getSeconds());
-        this.datetime = dateToday;
+    set time(time){
+        if (this.locked_time) return;
+        this.profile.time = time;
+        Site.setParameter("time", time);
     }
 
     get daily() {
         return this.profile.daily;
     }
     set daily(daily) {
+        if (this.profile.locked_daily) return;
         this.profile.daily = daily;
+        Site.setParameter("daily", daily);
     }
 
     get message() {
@@ -472,6 +568,7 @@ class Countdown {
     }
     set message(text) {
         this.profile.message = text;
+        Site.setParameter("msg", text);
     }
     get title() {
         return this.profile.title;
@@ -482,6 +579,7 @@ class Countdown {
         document.title = this.titleMaster;
         if (text.length > 0) document.title += ": " + text;
         console.log("[Countdown] Title: '" + document.title + "'");
+        Site.setParameter("title", text);
     }
 
     validate()
@@ -646,7 +744,7 @@ function profileBtnClick(event) {
 
     var key = btn.getAttribute("profilekey");
     if (key != null)
-        countdown.setProfile(CountdownProfile.get(key));
+        countdown.setProfile(CountdownProfile.get(key), true);
 }
 
 function onLoad(event)
@@ -657,6 +755,7 @@ function onLoad(event)
     var settingsbtn = document.getElementById("settingsbtn");
     if (settingsbtn != null) settingsbtn.addEventListener('click', countdownSettingsBtnClick, false);
 
+    // Register countdown profile buttons ...
     var profiles = document.getElementById("profiles");
     if (profiles != null)
     {
@@ -673,8 +772,6 @@ function onLoad(event)
     // ----------------------------------------
     // Init countdown
 
-    var profile = CountdownProfile.NewYear(); // default profile
-
     countdown.settingsDialog.register();
     ThemeSettingsDialog.addEvent('blur', onTargetTimeChange.bind(this), theme.settingsDialog.targetTimer);
 
@@ -687,11 +784,13 @@ function onLoad(event)
         elem.classList.remove('invisible');
     }
 
+    countdown.initialize(CountdownProfile.NewYear())
+
     // ----------------------------------------
     // Parse url query parametes
 
-    var help = getParameterByName('help');
-    if (help != null)
+    var help = Site.parameter('help');
+    if (help.exists)
     {
         console.log("URL query parameters:");
         console.log("  date=<date> - Set countdown date (Format: YYYY-MM-DD HH:MM:SS)");
@@ -703,57 +802,13 @@ function onLoad(event)
     }
 
     // -----
-     
+
     var val = Storage.local.get(StorageKey());
     if (val && val.length > 0) countdown.time = val;
 
-    // -----
-
-    var profileName = getParameterByName('profile');
-    if (profileName != null){
-        var p = CountdownProfile.get(profileName)
-        if (p != null) profile = p;
-        else console.error("[Countdown] Profile: '" + profileName + "' not found!");
-    }
-
-    // ------
-
-    var date = getParameterByName('date');
-    if (date != null){
-        countdown.date = date;
-        console.log("[Countdown] Date: '" + countdown.date + "'");
-    }
-
-    var time = getParameterByName('time');
-    if (time != null)
-    {
-        if (date == null) countdown.date = new Date();
-        countdown.time = time
-        console.log("[Countdown] Date: '" + countdown.date + "'");
-    }
-
-    var title = getParameterByName('title');
-    if (title != null)
-    {
-        countdown.setTitle(title);
-    }
-
-    var msg1 = getParameterByName('msg');
-    var msg2 = getParameterByName('message');
-    var txt = getParameterByName('text');
-    if (msg1 != null) txt = msg1;
-    if (msg2 != null) txt = msg2;
-    if (txt != null)
-    {
-        countdown.message = txt;
-        console.log("[Countdown] Messsage: '" + countdown.message + "'");
-        if (title == null) document.title = document.title.replace("New Year", txt);
-    }
-
     // ----------------------------------------
-    // Countdown profile and start
+    // Countdown start
 
-    countdown.setProfile(profile);
     countdown.start();
 }
 
